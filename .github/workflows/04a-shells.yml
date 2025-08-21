@@ -2,7 +2,7 @@ name: 04a - Distintas shells
 on:
   push:
     branches: [main]
-  workflows_dispatch:
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
