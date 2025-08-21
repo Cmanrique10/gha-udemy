@@ -11,8 +11,8 @@ jobs:
       - name: Check node version
         run: node --version
       - name: Install jsonlint
-        run: 
+        run: |
           sudo apt-get update
           sudo apt-get install jsonlint
       - name: Lintjson
-        run: jsonlint package.json
+        run: jsonlint-php package.json
