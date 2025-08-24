@@ -1,0 +1,30 @@
+name : 05 - a expresiones
+on:
+  push:
+    branches:[main]
+  workflow_dispatch:
+jobs:
+  expresiones:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Operadores
+        id: operadores
+        run: echo "${{ 2 > 3}}"
+      - name: Inspeccionar github
+        id: githubContext
+        run: echo "${{ toJson(github)}}"
+      - name: evento y actor
+        id: EventActor
+        run: |
+          echo "Evento disparador: ${{github.event_name}}"
+          echo "lanzado por: ${{ github.actor}}"
+      - name: Filtro  de objeto
+        id: stepsContext
+        run: |
+          echo "${{ toJson(steps)}}"
+          echo "${{ join(steps.*.conclusion)}}s"
+      - name: Imprimir SO
+        id: printSO
+        run: |
+          echo "${{ runner.os}}"
+          echo "${{ runner.arch}}"
