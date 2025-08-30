@@ -26,5 +26,5 @@ jobs:
       - name: Imprimir SO
         id: printSO
         run: |
-          echo "${{ runner.os}}"
-          echo "${{ runner.arch}}"
+          echo "Sistema operativo: ${{ runner.os}}"
+          echo "Arquitectura: ${{ runner.arch}}"
