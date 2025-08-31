@@ -1,4 +1,4 @@
-name: 07ßa entrada y salida
+name: 07 a entrada y salida
 on:
   workflow_dispatch:
     inputs:
@@ -25,3 +25,16 @@ jobs:
         if: ${{ inputs.numero-dados == 'dos'}}
         id: dado2
         run: echo "dado2=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
+  resumen:
+    runs-on: ubuntu-latest
+    needs: tirada-dados
+    steps:
+      - name : Escribir resumen
+        run: |
+          echo "# :game_die: El resultado es:" >> $GITHUB_STEP_SUMMARY
+          echo dado1: ${{ needs.tirada-dados.outputs.dado1 }} >> $GITHUB_STEP_SUMMARY
+      - name : Escribir resumen para segundo
+        if: ${{ inputs.numero-dados == 'dos'}}
+        run: |
+          echo dado1: ${{ needs.tirada-dados.outputs.dado1 }} >> $GITHUB_STEP_SUMMARY
+       
