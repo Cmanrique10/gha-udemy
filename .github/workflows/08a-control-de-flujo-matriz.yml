@@ -8,12 +8,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-22.04, ubuntu-20.04]
-        version: [18,20]
+        version: [18 ,20]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup node enviroment
-        uses: action/setup-node@v4
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.version }}
       - run: npm ci
