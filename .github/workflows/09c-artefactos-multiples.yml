@@ -1,4 +1,4 @@
-name: 09b - artefactos
+name: 09c - artefactos
 on:
   push:
     branches: [ "main" ]
@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Escribir dado 1
-        run: echo "((1 + RANDOM % 6))" >> dado1.txt
+        run: echo "$((1 + RANDOM % 6))" >> dado1.txt
       - name: Escribir dado 2
-        run: echo "((1 + RANDOM % 6))" >> dado2.txt
+        run: echo "$((1 + RANDOM % 6))" >> dado2.txt
       - name: archivar resultado
         uses: actions/upload-artifact@v4
         with:
