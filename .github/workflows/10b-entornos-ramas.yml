@@ -1,6 +1,6 @@
 name: 10a - entornos 
 on:
-    push:
+  push:
     branches: 
       - main
       - release/*
